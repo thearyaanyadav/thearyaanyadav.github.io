@@ -18,12 +18,6 @@
     "cat": "social"
   },
   {
-    "label": "last.fm",
-    "url": "https://www.last.fm/",
-    "icon": "🎧",
-    "cat": "social"
-  },
-  {
     "label": "vmfunc.re",
     "url": "https://vmfunc.re/",
     "icon": "💻",

@@ -530,7 +530,6 @@ function initLoadingScreen() {
 
   function showContinueButton() {
     clearInterval(tick);
-    cancelAnimationFrame(raf);
     if (bar) bar.style.width = '100%';
     if (msgEl) msgEl.textContent = 'READY. WAITING FOR USER INPUT.';
     if (continueBtn) {
@@ -680,4 +679,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   initFileViewer();
   initDesktopIcons();
 });
+
 

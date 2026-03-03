@@ -516,6 +516,7 @@ function initLoadingScreen() {
 
   const bar = document.getElementById('loading-bar');
   const msgEl = document.getElementById('loading-msg');
+  const continueBtn = document.getElementById('continue-btn');
 
   function dismissLoader() {
     clearInterval(tick);
@@ -527,6 +528,21 @@ function initLoadingScreen() {
     setTimeout(() => { screen.style.display = 'none'; }, 550);
   }
 
+  function showContinueButton() {
+    clearInterval(tick);
+    cancelAnimationFrame(raf);
+    if (bar) bar.style.width = '100%';
+    if (msgEl) msgEl.textContent = 'READY. WAITING FOR USER INPUT.';
+    if (continueBtn) {
+      continueBtn.style.display = 'block';
+      continueBtn.onclick = () => {
+        dismissLoader();
+        const playBtn = document.getElementById('btn-play');
+        if (playBtn) playBtn.click();
+      };
+    }
+  }
+
   let pct = 0;
   const tick = setInterval(() => {
     pct = Math.min(100, pct + (Math.random() * 8 + 4)); // faster: 4-12% per tick
@@ -535,11 +551,11 @@ function initLoadingScreen() {
       const next = Math.floor((pct / 100) * (msgs.length - 1));
       if (next > msgI) { msgI = next; msgEl.textContent = msgs[msgI]; }
     }
-    if (pct >= 100) dismissLoader();
+    if (pct >= 100) showContinueButton();
   }, 30);
 
   // Hard cap: loader always gone within 3 seconds
-  setTimeout(dismissLoader, 3000);
+  setTimeout(showContinueButton, 3000);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -664,3 +680,4 @@ document.addEventListener('DOMContentLoaded', async () => {
   initFileViewer();
   initDesktopIcons();
 });
+

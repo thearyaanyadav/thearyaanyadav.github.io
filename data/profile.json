@@ -1,31 +1,31 @@
 {
-    "bio": "i build things to break them.\nthen i build them stronger.\n\nwelcome to the void.",
-    "location": "somewhere on the internet",
-    "status": "writing code at 3am",
-    "listening": "ghost protocol",
-    "lastSeen": "2026-03-03",
-    "tags": "code, security, music, games, night owl, eternal lone wolf",
-    "footerTagline": "hand-coded with ♥ // best experienced at 3am",
-    "aboutIntro": "My handle is Acnologia. If you've found this place, congratulations. This is my little corner of the internet, far away from the noise of modern social media.",
-    "aboutLine2": "I'm a security researcher, systems programmer, and night owl. When I'm not breaking firmware or reverse-engineering legacy game engines, I'm probably listening to dark synthwave or building minimal desktop environments. The aesthetics of the late 90s and early 2000s web heavily influence my work—a time when the internet felt mysterious and untamed.",
-    "aboutContact": "i'm not always online. the best way to reach me is via discord(@acnologia) or github.",
-    "avatar": "",
-    "interests": "security research, reverse engineering, low-level systems, game dev, music",
-    "skills": [
-        {
-            "title": "languages",
-            "items": "C / C++, Python, Rust, JavaScript, Bash",
-            "color": "primary"
-        },
-        {
-            "title": "tools",
-            "items": "IDA Pro / Ghidra, GDB / LLDB, Wireshark, Burp Suite, Docker",
-            "color": "cyan"
-        },
-        {
-            "title": "vibes",
-            "items": "3am sessions, lo-fi + dark room, terminal only, single player games, solitude enjoyer",
-            "color": "accent"
-        }
-    ]
+  "bio": "aspiring to create something that truly changes the world ",
+  "location": "New Delhi, India",
+  "status": "writing code at 3am",
+  "listening": "Mozart",
+  "lastSeen": "2026-03-04",
+  "tags": "code, cybersecurity, music, books, machine learning & ai",
+  "aboutIntro": "I am Aryaan Yadav, a software engineer based out of New Delhi, India. If you have reached this site, you likely already have a way to communicate with me live. ",
+  "aboutLine2": "I build things. Sometimes they break. Usually on purpose.",
+  "aboutContact": "I'm not always online. the best way to reach me is via WhatsApp or Signal.",
+  "interests": "security research, reverse engineering, breaching, AI tech advances",
+  "footerTagline": "hand-coded with some vibe coding for design elements and code restructuring",
+  "avatar": "data:image/png;base64,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",
+  "skills": [
+    {
+      "title": "languages",
+      "items": "C / C++, Python, React, JavaScript",
+      "color": "primary"
+    },
+    {
+      "title": "tools",
+      "items": "VS Code, Antigravity, Multiple AI Agents, Android Studio, Docker",
+      "color": "cyan"
+    },
+    {
+      "title": "vibes",
+      "items": "3am sessions, coffee, fantasy and sci-fi novels, cultural literature from around the globe",
+      "color": "accent"
+    }
+  ]
 }

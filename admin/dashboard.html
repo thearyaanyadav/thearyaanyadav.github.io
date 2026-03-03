@@ -1256,8 +1256,39 @@
             ['new-link-label', 'new-link-url', 'new-link-icon'].forEach(id => document.getElementById(id).value = '');
         }
 
-        /* ─── Init ───────────────────────────────────────────── */
-        document.addEventListener('DOMContentLoaded', () => {
+         /* ─── Init ───────────────────────────────────────────── */
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Auto-sync local data on first run rather than using defaults
+            if (!localStorage.getItem('acn-admin-synced')) {
+                try {
+                    const t = '?t=' + Date.now();
+                    const [pRes, trRes, lRes, profRes] = await Promise.all([
+                        fetch('../data/philes.json' + t).catch(() => null),
+                        fetch('../data/playlist.json' + t).catch(() => null),
+                        fetch('../data/links.json' + t).catch(() => null),
+                        fetch('../data/profile.json' + t).catch(() => null)
+                    ]);
+
+                    if (pRes && pRes.ok) localStorage.setItem('acn-philes', JSON.stringify(await pRes.json()));
+                    if (trRes && trRes.ok) localStorage.setItem('acn-tracks', JSON.stringify(await trRes.json()));
+                    if (lRes && lRes.ok) localStorage.setItem('acn-links', JSON.stringify(await lRes.json()));
+                    if (profRes && profRes.ok) {
+                        const profData = await profRes.json();
+                        for (const k in profData) {
+                            localStorage.setItem(`acn-prof-${k}`, typeof profData[k] === 'string' ? profData[k] : JSON.stringify(profData[k]));
+                            if (k === 'interests') localStorage.setItem('acn-about-interests', profData[k]);
+                            if (k === 'skills') localStorage.setItem('acn-about-skills', JSON.stringify(profData[k]));
+                            if (k === 'aboutIntro') localStorage.setItem('acn-about-intro', profData[k]);
+                            if (k === 'aboutLine2') localStorage.setItem('acn-about-line2', profData[k]);
+                            if (k === 'aboutContact') localStorage.setItem('acn-about-contact', profData[k]);
+                            if (k === 'footerTagline') localStorage.setItem('acn-footer-tagline', profData[k]);
+                            if (k === 'avatar') localStorage.setItem('acn-prof-avatar', profData[k]);
+                        }
+                    }
+                    localStorage.setItem('acn-admin-synced', 'true');
+                } catch (e) { console.error('Auto-sync failed', e); }
+            }
+
             renderPhileTable();
             renderTrackTable();
             loadProfile();
@@ -1270,3 +1301,4 @@
 </body>
 
 </html>
+

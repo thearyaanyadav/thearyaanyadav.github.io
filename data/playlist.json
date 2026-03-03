@@ -1,17 +1,7 @@
 [
-    {
-        "title": "GoodMorningNightCity",
-        "artist": "Cyberpunk 2077",
-        "url": "assets/audio/GoodMorningNightCity.mp3"
-    },
-    {
-        "title": "WushuDolls",
-        "artist": "Cyberpunk 2077",
-        "url": "assets/audio/WushuDolls.mp3"
-    },
-    {
-        "title": "NightCityAliens",
-        "artist": "Cyberpunk 2077",
-        "url": "assets/audio/NightCityAliens.mp3"
-    }
+  {
+    "title": "tunes",
+    "artist": "that one company",
+    "url": "assets/audio/tunes.mp3"
+  }
 ]

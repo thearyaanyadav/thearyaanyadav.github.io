@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>// access denied</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .login-wrap {
+            width: 360px;
+            max-width: calc(100vw - 32px);
+        }
+
+        .login-pre {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--accent);
+            text-shadow: 0 0 8px var(--accent);
+            white-space: pre;
+            text-align: center;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        .login-field {
+            margin-bottom: 12px;
+        }
+
+        .login-label {
+            font-family: var(--font-pixel);
+            font-size: 8px;
+            color: var(--text-dim);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .login-input {
+            width: 100%;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            color: var(--primary);
+            font-family: var(--font-mono);
+            font-size: 13px;
+            padding: 8px 12px;
+            outline: none;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        .login-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(255, 51, 51, 0.12);
+        }
+
+        .login-input::placeholder {
+            color: var(--text-dim);
+            opacity: 0.5;
+        }
+
+        .login-btn {
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-family: var(--font-pixel);
+            font-size: 9px;
+            padding: 10px;
+            cursor: pointer;
+            letter-spacing: 2px;
+            transition: all 0.15s;
+            margin-top: 4px;
+        }
+
+        .login-btn:hover {
+            background: rgba(255, 51, 51, 0.08);
+            box-shadow: 0 0 16px rgba(255, 51, 51, 0.2);
+        }
+
+        .login-btn:active {
+            transform: scale(0.98);
+        }
+
+        .login-error {
+            display: none;
+            font-family: var(--font-pixel);
+            font-size: 8px;
+            color: var(--accent);
+            text-align: center;
+            margin-top: 10px;
+            padding: 8px;
+            background: rgba(255, 51, 102, 0.08);
+            border: 1px solid rgba(255, 51, 102, 0.3);
+        }
+
+        .login-attempts {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--text-dim);
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .terminal-lines {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            padding: 12px;
+        }
+
+        .tl {
+            margin-bottom: 3px;
+        }
+
+        .tl .cmd {
+            color: var(--primary);
+        }
+
+        .tl .val {
+            color: var(--cyan);
+        }
+
+        .tl .err {
+            color: var(--accent);
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-6px);
+            }
+
+            40% {
+                transform: translateX(6px);
+            }
+
+            60% {
+                transform: translateX(-4px);
+            }
+
+            80% {
+                transform: translateX(4px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-wrap">
+        <pre class="login-pre">
+▓█████▄  ▄▄▄       ███▄ ▄███▓ ▒█████   ███▄    █ 
+▒██▀ ██▌▒████▄    ▓██▒▀█▀ ██▒▒██▒  ██▒ ██ ▀█   █ 
+░██   █▌▒██  ▀█▄  ▓██    ▓██░▒██░  ██▒▓██  ▀█ ██▒
+░▓█▄   ▌░██▄▄▄▄██ ▒██    ▒██ ▒██   ██░▓██▒  ▐▌██▒
+░▒████▓  ▓█   ▓██▒▒██▒   ░██▒░ ████▓▒░▒██░   ▓██░
+ ▒▒▓  ▒  ▒▒   ▓▒█░░ ▒░   ░  ░░ ▒░▒░▒░ ░ ▒░   ▒ ▒ 
+ ░ ▒  ▒   ▒   ▒▒ ░░  ░      ░  ░ ▒ ▒░ ░ ░░   ░ ▒░
+ ░ ░  ░   ░   ▒   ░      ░   ░ ░ ░ ▒     ░   ░ ░ 
+   ░          ░  ░       ░       ░ ░           ░ 
+ ░</pre>
+
+        <div class="terminal-lines">
+            <div class="tl"><span class="text-dim">$</span> <span class="cmd">ssh</span> acn@void.local</div>
+            <div class="tl"><span class="err">WARNING</span>: Unauthorized access is prohibited.</div>
+            <div class="tl"><span class="val">Authenticated users only.</span></div>
+            <div class="tl"><span class="text-dim">$</span> <span id="tl-blink" class="cmd">_</span></div>
+        </div>
+
+        <div class="window">
+            <div class="window-title">
+                <div class="win-buttons">
+                    <span class="win-btn close"></span>
+                    <span class="win-btn min"></span>
+                    <span class="win-btn max"></span>
+                </div>
+                🔒 auth.exe
+            </div>
+            <div class="window-body">
+                <form id="login-form" autocomplete="off">
+                    <div class="login-field">
+                        <label class="login-label" for="username">USERNAME</label>
+                        <input class="login-input" type="text" id="username" name="username"
+                            placeholder="enter username" autocomplete="off" spellcheck="false" />
+                    </div>
+                    <div class="login-field">
+                        <label class="login-label" for="password">PASSWORD</label>
+                        <input class="login-input" type="password" id="password" name="password"
+                            placeholder="••••••••••••••••" autocomplete="new-password" />
+                    </div>
+                    <button class="login-btn" type="submit">[ AUTHENTICATE ]</button>
+                </form>
+                <div class="login-error" id="login-error">ACCESS DENIED — invalid credentials</div>
+                <div class="login-attempts" id="login-attempts"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        'use strict';
+
+        // Blink cursor
+        setInterval(() => {
+            const b = document.getElementById('tl-blink');
+            if (b) b.style.opacity = b.style.opacity === '0' ? '1' : '0';
+        }, 600);
+
+        // ── Auth ─────────────────────────────────────────────────
+        const CORRECT_USER = '7uGHk%v2!E)';
+        // Pre-computed PBKDF2 hash of the password
+        const STORED_SALT_HEX = '776562736974655f73616c74';
+        const STORED_HASH_HEX = '09811819ee9a84e1083e843ae9141e3fb24b2b970c265101ae63bf8da1b6fbb8';
+
+        // Convert hex string to Uint8Array
+        function hexToBytes(hex) {
+            const bytes = new Uint8Array(hex.length / 2);
+            for (let i = 0; i < bytes.length; i++) {
+                bytes[i] = parseInt(hex.substr(i * 2, 2), 16);
+            }
+            return bytes;
+        }
+
+        // Convert Uint8Array to hex string
+        function bytesToHex(bytes) {
+            return Array.from(new Uint8Array(bytes)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        async function deriveKey(passwordStr, saltHex) {
+            const enc = new TextEncoder().encode(passwordStr);
+            const salt = hexToBytes(saltHex);
+
+            // Import the password as a base key
+            const baseKey = await crypto.subtle.importKey(
+                'raw', enc, { name: 'PBKDF2' }, false, ['deriveBits']
+            );
+
+            // Derive 256 bits (32 bytes) of key material using 600,000 iterations
+            const derivedBits = await crypto.subtle.deriveBits(
+                {
+                    name: 'PBKDF2',
+                    salt: salt,
+                    iterations: 600000,
+                    hash: 'SHA-256'
+                },
+                baseKey,
+                256
+            );
+
+            return bytesToHex(derivedBits);
+        }
+
+        // If already logged in, go straight to dashboard
+        if (sessionStorage.getItem('acn-admin-auth') === 'true') {
+            window.location.href = '/admin/dashboard.html';
+        }
+
+        let attempts = 0;
+        const MAX_ATTEMPTS = 5;
+        const form = document.getElementById('login-form');
+        const errEl = document.getElementById('login-error');
+        const attEl = document.getElementById('login-attempts');
+
+        form.addEventListener('submit', async e => {
+            e.preventDefault();
+            if (attempts >= MAX_ATTEMPTS) return;
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+
+            errEl.style.display = 'none'; // hide error while computing
+
+            // This will take a fraction of a second due to the 600k iterations
+            const inputHash = await deriveKey(password, STORED_SALT_HEX);
+
+            if (username === CORRECT_USER && inputHash === STORED_HASH_HEX) {
+                sessionStorage.setItem('acn-admin-auth', 'true');
+                errEl.style.display = 'none';
+                const btn = form.querySelector('.login-btn');
+                btn.textContent = '[ ACCESS GRANTED ]';
+                btn.style.color = 'var(--green)';
+                btn.style.borderColor = 'var(--green)';
+                // Use absolute path so it works on any server base
+                setTimeout(() => { window.location.href = '/admin/dashboard.html'; }, 700);
+            } else {
+                attempts++;
+                errEl.style.display = 'block';
+                if (attempts >= MAX_ATTEMPTS) {
+                    errEl.textContent = 'TOO MANY ATTEMPTS — locked for this session';
+                    const btn = form.querySelector('.login-btn');
+                    btn.disabled = true;
+                    btn.style.opacity = '0.4';
+                } else {
+                    attEl.textContent = `${MAX_ATTEMPTS - attempts} attempt${MAX_ATTEMPTS - attempts !== 1 ? 's' : ''} remaining`;
+                    form.querySelectorAll('.login-input').forEach(i => {
+                        i.style.animation = 'none';
+                        void i.offsetHeight;
+                        i.style.animation = 'shake 0.4s ease';
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

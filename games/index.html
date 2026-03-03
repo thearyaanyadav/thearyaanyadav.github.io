@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Games // Acnologia</title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <div class="status-bar">
+        <div class="status-left">
+            <span class="status-dot"></span>
+            <a href="../index.html" style="color:var(--text-dim);font-size:11px;">← ACNOLOGIA.DEV</a>
+        </div>
+        <div class="status-right"><span id="clock" class="clock">00:00:00</span></div>
+    </div>
+
+    <div class="game-page" style="max-width:680px; padding-top:16px;">
+        <a href="../index.html" class="back-link">← Back to Home</a>
+
+        <div class="window">
+            <div class="window-title">
+                <div class="win-buttons">
+                    <span class="win-btn close" onclick="window.location.href='../index.html'" title="Close"></span>
+                    <span class="win-btn min"></span>
+                    <span class="win-btn max"></span>
+                </div>
+                🎮 games.exe
+            </div>
+            <div class="window-body">
+                <p class="text-dim" style="font-size:12px; margin-bottom:16px;">
+                    classic games. retro aesthetic. built from scratch.
+                </p>
+                <div class="games-grid">
+                    <a href="minesweeper.html" class="game-card">
+                        <span class="game-card-icon">💣</span>
+                        <h3>MINESWEEPER</h3>
+                        <p>Easy / Medium / Hard. Don't click the wrong square.</p>
+                    </a>
+                    <a href="chess.html" class="game-card">
+                        <span class="game-card-icon">♟️</span>
+                        <h3>CHESS</h3>
+                        <p>Two-player local. Full rules — castling, en passant, check.</p>
+                    </a>
+                    <a href="snake.html" class="game-card">
+                        <span class="game-card-icon">🐍</span>
+                        <h3>SNAKE</h3>
+                        <p>Grow. Eat. Get faster. Don't bite yourself.</p>
+                    </a>
+                    <a href="tetris.html" class="game-card">
+                        <span class="game-card-icon">🟦</span>
+                        <h3>TETRIS</h3>
+                        <p>Stack blocks. Clear lines. Lose sleep.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+[
+    {
+        "label": "GitHub",
+        "url": "https://github.com/acnologia-rn",
+        "icon": "🐙",
+        "cat": "social"
+    },
+    {
+        "label": "SoundCloud",
+        "url": "https://soundcloud.com/",
+        "icon": "🎵",
+        "cat": "social"
+    },
+    {
+        "label": "last.fm",
+        "url": "https://www.last.fm/",
+        "icon": "🎧",
+        "cat": "social"
+    },
+    {
+        "label": "vmfunc.re",
+        "url": "https://vmfunc.re/",
+        "icon": "💻",
+        "cat": "friends"
+    },
+    {
+        "label": "nullpt.rs",
+        "url": "https://nullpt.rs/",
+        "icon": "👾",
+        "cat": "friends"
+    },
+    {
+        "label": "ud2.rip",
+        "url": "https://ud2.rip/",
+        "icon": "⚡",
+        "cat": "friends"
+    }
+]

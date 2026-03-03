@@ -1,0 +1,30 @@
+[
+    {
+        "title": "defcon 34 writeup - owning the voting machines",
+        "excerpt": "how we reversed the firmware and found a hardcoded backdoor over physical serial.",
+        "date": "2026-02-28",
+        "url": "#",
+        "body": ""
+    },
+    {
+        "title": "on getting better at being alone",
+        "excerpt": "solitude is a skill. took me a while to figure that out.",
+        "date": "2026-02-10",
+        "url": "#",
+        "body": ""
+    },
+    {
+        "title": "everything i know about RE, i learned from games",
+        "excerpt": "game cheats were my gateway drug into reverse engineering.",
+        "date": "2026-01-22",
+        "url": "#",
+        "body": ""
+    },
+    {
+        "title": "why i still keep a personal website in 2026",
+        "excerpt": "social media is a cage. this is mine to own.",
+        "date": "2026-01-05",
+        "url": "#",
+        "body": ""
+    }
+]

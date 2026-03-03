@@ -1,0 +1,31 @@
+{
+    "bio": "i build things to break them.\nthen i build them stronger.\n\nwelcome to the void.",
+    "location": "somewhere on the internet",
+    "status": "writing code at 3am",
+    "listening": "ghost protocol",
+    "lastSeen": "2026-03-03",
+    "tags": "code, security, music, games, night owl, eternal lone wolf",
+    "footerTagline": "hand-coded with ♥ // best experienced at 3am",
+    "aboutIntro": "My handle is Acnologia. If you've found this place, congratulations. This is my little corner of the internet, far away from the noise of modern social media.",
+    "aboutLine2": "I'm a security researcher, systems programmer, and night owl. When I'm not breaking firmware or reverse-engineering legacy game engines, I'm probably listening to dark synthwave or building minimal desktop environments. The aesthetics of the late 90s and early 2000s web heavily influence my work—a time when the internet felt mysterious and untamed.",
+    "aboutContact": "i'm not always online. the best way to reach me is via discord(@acnologia) or github.",
+    "avatar": "",
+    "interests": "security research, reverse engineering, low-level systems, game dev, music",
+    "skills": [
+        {
+            "title": "languages",
+            "items": "C / C++, Python, Rust, JavaScript, Bash",
+            "color": "primary"
+        },
+        {
+            "title": "tools",
+            "items": "IDA Pro / Ghidra, GDB / LLDB, Wireshark, Burp Suite, Docker",
+            "color": "cyan"
+        },
+        {
+            "title": "vibes",
+            "items": "3am sessions, lo-fi + dark room, terminal only, single player games, solitude enjoyer",
+            "color": "accent"
+        }
+    ]
+}

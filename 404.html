@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Not Found // aryaan yadav</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <div class="status-bar">
+        <div class="status-left">
+            <span class="status-dot" style="background:var(--accent);box-shadow:0 0 6px var(--accent);"></span>
+            <span style="color:var(--accent);font-size:11px;">ERROR_404</span>
+        </div>
+        <div class="status-right"><span id="clock" class="clock">00:00:00</span></div>
+    </div>
+
+    <div class="site-wrapper"
+        style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;text-align:center;">
+        <pre class="ascii-art" style="color:var(--accent);text-shadow:0 0 8px var(--accent);">
+ ██╗  ██╗ ██████╗ ██╗  ██╗
+ ██║  ██║██╔═████╗██║  ██║
+ ███████║██║██╔██║███████║
+ ╚════██║████╔╝██║╚════██║
+      ██║╚██████╔╝     ██║
+      ╚═╝ ╚═════╝      ╚═╝</pre>
+
+        <h1 style="margin-top:16px;font-size:12px;color:var(--accent);">PAGE NOT FOUND</h1>
+        <p class="text-dim" style="margin:12px 0;font-size:13px;">this page doesn't exist. maybe it never did.</p>
+        <pre
+            style="font-size:11px;color:var(--text-dim);background:var(--bg2);border:1px solid var(--border);padding:12px;margin-bottom:20px;">
+ERROR: 404 — File not found
+Path: <span id="err-path" style="color:var(--accent);"></span>
+Status: 404
+Trace: void::null_reference::dead_end</pre>
+
+        <a href="/" class="game-btn primary" style="display:inline-block;padding:10px 24px;margin-top:4px;">← Go
+            Home</a>
+    </div>
+
+    <script>
+        // Clock
+        const c = document.getElementById('clock');
+        function t() { const n = new Date(); c.textContent = [n.getHours(), n.getMinutes(), n.getSeconds()].map(x => String(x).padStart(2, '0')).join(':'); }
+        t(); setInterval(t, 1000);
+        // Error path
+        document.getElementById('err-path').textContent = location.pathname;
+    </script>
+</body>
+
+</html>

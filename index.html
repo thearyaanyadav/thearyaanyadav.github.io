@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aryaan yadav // personal site</title>
+  <meta name="description"
+    content="aryaan yadav's personal corner of the internet. Code, media, music, and thoughts." />
+  <meta property="og:title" content="aryaan yadav" />
+  <meta property="og:description" content="Welcome to my website." />
+  <meta name="theme-color" content="#ff3333" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Page-specific tweaks */
+    .site-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Loading screen -->
+  <div id="loading-screen" aria-hidden="true">
+    <canvas id="loading-canvas"></canvas>
+    <div id="loading-text">
+      <pre style="font-size:11px;color:#ff3333;text-shadow:0 0 10px #ff3333;line-height:1.2;">                                                       _             
+                                                      | |            
+   __ _ _ __ _   _  __ _  __ _ _ __    _   _  __ _  __| | __ ___   __
+  / _` | '__| | | |/ _` |/ _` | '_ \  | | | |/ _` |/ _` |/ _` \ \ / /
+ | (_| | |  | |_| | (_| | (_| | | | | | |_| | (_| | (_| | (_| |\ V / 
+  \__,_|_|   \__, |\__,_|\__,_|_| |_|  \__, |\__,_|\__,_|\__,_| \_/  
+              __/ |                     __/ |                        
+             |___/                     |___/                         </pre>
+      <div id="loading-bar-wrap">
+        <div id="loading-bar"></div>
+      </div>
+      <div id="loading-msg" style="font-family:monospace;font-size:11px;color:#ff3333;margin-top:8px;">INITIALIZING...
+      </div>
+      <button id="continue-btn"
+        style="display:none; margin: 16px auto 0; font-family: var(--font-pixel); font-size: 10px; background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 10px; cursor: pointer; letter-spacing: 2px; transition: all 0.15s;">[
+        CONTINUE TO SITE ]</button>
+    </div>
+  </div>
+
+  <div class="status-bar">
+    <div class="status-left">
+      <span class="status-dot"></span>
+      <span class="pixel" style="font-size:8px; color:var(--primary);">aryaan yadav.DEV</span>
+      <span>// online</span>
+    </div>
+    <div class="status-right">
+      <span id="clock" class="clock">00:00:00</span>
+      <span>UTC+5:30</span>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <!-- ASCII Header -->
+    <header class="ascii-header">
+      <pre id="ascii-title" class="ascii-art glitch" role="button" tabindex="0" title="go home" style="cursor:pointer"
+        onclick="document.querySelector('[data-tab=home]').click()"
+        onkeydown="if(event.key==='Enter')document.querySelector('[data-tab=home]').click()" data-text="                                                       _             
+                                                      | |            
+   __ _ _ __ _   _  __ _  __ _ _ __    _   _  __ _  __| | __ ___   __
+  / _` | '__| | | |/ _` |/ _` | '_ \  | | | |/ _` |/ _` |/ _` \ \ / /
+ | (_| | |  | |_| | (_| | (_| | | | | | |_| | (_| | (_| | (_| |\ V / 
+  \__,_|_|   \__, |\__,_|\__,_|_| |_|  \__, |\__,_|\__,_|\__,_| \_/  
+              __/ |                     __/ |                        
+             |___/                     |___/                         ">                                                       _             
+                                                      | |            
+   __ _ _ __ _   _  __ _  __ _ _ __    _   _  __ _  __| | __ ___   __
+  / _` | '__| | | |/ _` |/ _` | '_ \  | | | |/ _` |/ _` |/ _` \ \ / /
+ | (_| | |  | |_| | (_| | (_| | | | | | |_| | (_| | (_| | (_| |\ V / 
+  \__,_|_|   \__, |\__,_|\__,_|_| |_|  \__, |\__,_|\__,_|\__,_| \_/  
+              __/ |                     __/ |                        
+             |___/                     |___/                         </pre>
+      <div class="header-subtitle">welcome to my small corner of the internet<span>_</span></div>
+    </header>
+
+    <!-- Nav Tabs -->
+    <nav class="nav-tabs" role="tablist">
+      <button class="nav-tab" data-tab="home" role="tab">[ Home ]</button>
+      <button class="nav-tab" data-tab="about" role="tab">[ About ]</button>
+      <button class="nav-tab" data-tab="links" role="tab">[ Links ]</button>
+      <button class="nav-tab" data-tab="philes" role="tab">[ Files ]</button>
+      <button class="nav-tab" data-tab="games" role="tab">[ Games ]</button>
+    </nav>
+
+    <!-- ══ HOME TAB ══════════════════════════════════════════ -->
+    <section id="panel-home" class="tab-panel">
+
+      <!-- Profile Window -->
+      <div class="window">
+        <div class="window-title">
+          <div class="win-buttons">
+            <span class="win-btn close"></span>
+            <span class="win-btn min"></span>
+            <span class="win-btn max"></span>
+          </div>
+          profile.exe
+        </div>
+        <div class="window-body">
+          <div class="profile-section">
+            <div class="profile-avatar" title="aryaan yadav"
+              style="overflow:-moz-hidden-unscrollable; overflow:hidden;">
+              <span id="home-avatar-emoji">🐉</span>
+              <img id="home-avatar-img" src="" style="display:none;width:100%;height:100%;object-fit:cover;"
+                alt="avatar" />
+            </div>
+            <div class="profile-info">
+              <h2 class="glitch" data-text="aryaan yadav">aryaan yadav</h2>
+              <p id="typewriter" class="text-dim"
+                data-text="code · chaos · solitude. somewhere between exploit dev and 3am playlists."></p>
+              <div id="profile-tags">
+                <span class="tag">code</span>
+                <span class="tag">cybersecurity</span>
+                <span class="tag">music</span>
+                <span class="tag">books</span>
+                <span class="tag">machine learning & ai</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <div class="two-col">
+            <div>
+              <h3 class="text-dim mb-8">// STATUS</h3>
+              <p style="font-size:12px;"><span class="text-primary">location:</span> <span
+                  id="prof-location-display">somewhere on the internet</span></p>
+              <p style="font-size:12px;"><span class="text-primary">currently:</span> <span
+                  id="prof-status-display">writing code at 3am</span></p>
+              <p style="font-size:12px;"><span class="text-primary">listening:</span> <span id="listening-status">ghost
+                  protocol</span></p>
+              <p style="font-size:12px;"><span class="text-primary">last seen:</span> <span
+                  id="last-updated">2026-03-03</span></p>
+            </div>
+            <div>
+              <h3 class="text-dim mb-8">// VISITOR COUNT</h3>
+              <div class="visitor-counter">
+                <span>VISITORS:</span>
+                <div id="visitor-count" class="counter-digits"></div>
+              </div>
+              <div class="badges mt-8">
+                <div class="badge">HAND CODED*</div>
+                <div class="badge">NO TRACKING*</div>
+                <div class="badge">DARK MODE ONLY</div>
+                <div class="badge">UNDER CONSTRUCTION</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Philes Preview -->
+      <div class="window">
+        <div class="window-title">
+          <div class="win-buttons">
+            <span class="win-btn close"></span>
+            <span class="win-btn min"></span>
+            <span class="win-btn max"></span>
+          </div>
+          recent_files.txt
+        </div>
+        <div class="window-body">
+          <!-- Dynamically populated from localStorage by main.js -->
+          <ul class="phile-list" id="philes-home-list"></ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ══ ABOUT TAB ═════════════════════════════════════════ -->
+    <section id="panel-about" class="tab-panel">
+      <div class="window">
+        <div class="window-title">
+          <div class="win-buttons">
+            <span class="win-btn close"></span>
+            <span class="win-btn min"></span>
+            <span class="win-btn max"></span>
+          </div>
+          📄 readme.txt
+        </div>
+        <div class="window-body">
+          <pre style="font-size:11px; color:var(--primary); margin-bottom:16px;">
+ ┌─────────────────────────────────────────────────────┐
+ │                    aryaan yadav                        │
+ │              ident / about / readme                 │
+ └─────────────────────────────────────────────────────┘</pre>
+
+          <div style="display:flex; gap:16px; margin-bottom:16px; align-items:flex-start;">
+            <img id="main-avatar" src=""
+              style="width:80px; height:80px; object-fit:cover; border:1px solid var(--border); border-radius:2px; display:none;"
+              alt="avatar" />
+            <div>
+              <p id="about-intro-text">handle: <span class="text-primary">aryaan yadav</span>. you found my little
+                corner
+                of the web.</p>
+              <p id="about-interests-text">interests: <span class="text-cyan">security research</span> · <span
+                  class="text-cyan">reverse engineering</span> · <span class="text-cyan">low-level systems</span> ·
+                <span class="text-cyan">game dev</span> · <span class="text-cyan">music</span>
+              </p>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <h2 style="margin-bottom:12px;">// SKILLS &amp; TOOLS</h2>
+          <div class="three-col" style="font-size:11px; margin-bottom:16px;" id="about-skills-grid">
+            <div>
+              <h3 class="mb-8">languages</h3>
+              <ul style="list-style:none; color:var(--text-dim);">
+                <li><span class="text-primary">›</span> C / C++</li>
+                <li><span class="text-primary">›</span> Python</li>
+                <li><span class="text-primary">›</span> Rust</li>
+                <li><span class="text-primary">›</span> JavaScript</li>
+                <li><span class="text-primary">›</span> Bash</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="mb-8">tools</h3>
+              <ul style="list-style:none; color:var(--text-dim);">
+                <li><span class="text-cyan">›</span> IDA Pro / Ghidra</li>
+                <li><span class="text-cyan">›</span> GDB / LLDB</li>
+                <li><span class="text-cyan">›</span> Wireshark</li>
+                <li><span class="text-cyan">›</span> Burp Suite</li>
+                <li><span class="text-cyan">›</span> Docker</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="mb-8">vibes</h3>
+              <ul style="list-style:none; color:var(--text-dim);">
+                <li><span class="text-accent">›</span> 3am sessions</li>
+                <li><span class="text-accent">›</span> lo-fi + dark room</li>
+                <li><span class="text-accent">›</span> terminal only</li>
+                <li><span class="text-accent">›</span> single player games</li>
+                <li><span class="text-accent">›</span> solitude enjoyer</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <h2 style="margin-bottom:12px;">// CONTACT</h2>
+          <p style="font-size:12px;" id="about-contact-text">
+            i'm not always online. the best way to reach me is via
+            <a href="mailto:aryaan yadav@example.com">email</a> or
+            <a href="https://github.com/" target="_blank" rel="noopener">github</a>.
+            don't expect a fast reply. nothing personal, i'm just slow.
+          </p>
+
+          <hr class="divider" />
+
+          <h2 style="margin-bottom:12px;">// TERMINAL</h2>
+          <div
+            style="background:var(--bg2); border:1px solid var(--border); padding:14px; font-size:12px; position:relative; overflow:hidden;">
+            <!-- cmatrix canvas backdrop -->
+            <canvas id="cmatrix-canvas"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.18;pointer-events:none;"></canvas>
+            <div style="position:relative;z-index:1;">
+              <p><span class="text-primary">aryaan@void</span><span class="text-dim">:</span><span
+                  class="text-cyan">~</span><span class="text-dim">$</span> whoami</p>
+              <p class="text-dim" style="margin-bottom:8px;">aryaan yadav — likely learning interesting coding paradigms
+              </p>
+              <p><span class="text-primary">aryaan@void</span><span class="text-dim">:</span><span
+                  class="text-cyan">~</span><span class="text-dim">$</span> cat interests.txt</p>
+              <p class="text-dim" style="margin-bottom:8px;">researching backdoors · systems programming ·
+                being offline</p>
+              <p>&nbsp;</p>
+              <p><span class="text-primary">aryaan@void</span><span class="text-dim">:</span><span
+                  class="text-cyan">~</span><span class="text-dim">$</span> <span class="blink">█</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ LINKS TAB ═════════════════════════════════════════ -->
+    <section id="panel-links" class="tab-panel">
+      <div class="window">
+        <div class="window-title">
+          <div class="win-buttons">
+            <span class="win-btn close"></span>
+            <span class="win-btn min"></span>
+            <span class="win-btn max"></span>
+          </div>
+          links.html
+        </div>
+        <div class="window-body">
+          <h2 class="mb-8">// MY LINKS</h2>
+          <div class="links-grid" id="links-social-grid">
+            <a href="https://github.com/" target="_blank" rel="noopener" class="link-item">
+              <span class="link-icon">🐙</span> GitHub
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener" class="link-item">
+              <span class="link-icon">🐦</span> Twitter / X
+            </a>
+            <a href="https://soundcloud.com/" target="_blank" rel="noopener" class="link-item">
+              <span class="link-icon">🎵</span> SoundCloud
+            </a>
+            <a href="https://www.last.fm/" target="_blank" rel="noopener" class="link-item">
+              <span class="link-icon">🎧</span> last.fm
+            </a>
+            <a href="#" class="link-item">
+              <span class="link-icon">📡</span> RSS Feed
+            </a>
+            <a href="#" class="link-item">
+              <span class="link-icon">📝</span> ident.txt
+            </a>
+          </div>
+
+          <hr class="divider" />
+
+          <h2 class="mb-8">// NETWORK / FRIENDS</h2>
+          <div class="links-grid" id="links-friends-grid">
+            <a href="https://vmfunc.re/" target="_blank" rel="noopener" class="link-item">
+              <span class="link-icon">💻</span> vmfunc.re
+            </a>
+          </div>
+
+          <hr class="divider" />
+
+          <h2 class="mb-8">// COOL STUFF</h2>
+          <div class="links-grid" id="links-cool-grid">
+            <a href="https://archive.org" target="_blank" rel="noopener" class="link-item">
+              <span class="link-icon">📚</span> Internet Archive
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FILES TAB ══════════════════════════════════════════ -->
+    <section id="panel-philes" class="tab-panel">
+      <!-- File viewer overlay -->
+      <div id="file-viewer" style="display:none;" class="window">
+        <div class="window-title">
+          <div class="win-buttons">
+            <span class="win-btn close" onclick="closeFileViewer()"></span>
+            <span class="win-btn min"></span>
+            <span class="win-btn max"></span>
+          </div>
+          <span id="file-viewer-title">file.txt</span>
+        </div>
+        <div class="window-body" id="file-viewer-body" style="max-height:60vh;overflow-y:auto;"></div>
+      </div>
+
+      <div class="window">
+        <div class="window-title">
+          <div class="win-buttons">
+            <span class="win-btn close"></span>
+            <span class="win-btn min"></span>
+            <span class="win-btn max"></span>
+          </div>
+          /files
+        </div>
+        <div class="window-body">
+          <p class="text-dim" style="font-size:12px; margin-bottom:16px;">
+            writings, thoughts, rambling. no schedule, no tags, no algorithm.
+          </p>
+          <!-- Dynamically populated from localStorage by main.js -->
+          <ul class="phile-list" id="philes-full-list"></ul>
+          <hr class="divider" />
+          <p class="text-dim" style="font-size:11px;">more eventually. probably.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ GAMES TAB ═════════════════════════════════════════ -->
+    <section id="panel-games" class="tab-panel">
+      <div class="window">
+        <div class="window-title">
+          <div class="win-buttons">
+            <span class="win-btn close"></span>
+            <span class="win-btn min"></span>
+            <span class="win-btn max"></span>
+          </div>
+          games.exe
+        </div>
+        <div class="window-body">
+          <p class="text-dim" style="font-size:12px; margin-bottom:16px;">
+            classic games. retro aesthetic. built from scratch.
+          </p>
+          <div class="games-grid">
+            <a href="games/minesweeper.html" class="game-card">
+              <span class="game-card-icon win98-icon" aria-label="Minesweeper">
+                <svg viewBox="0 0 32 32" width="48" height="48" shape-rendering="crispEdges">
+                  <!-- Win98-style icon: Minesweeper -->
+                  <rect width="32" height="32" fill="#0d0d1a" />
+                  <!-- Icon body -->
+                  <rect x="4" y="4" width="24" height="24" fill="#1a1a3a" stroke="#ff3333" stroke-width="1" />
+                  <!-- grid cells -->
+                  <rect x="5" y="5" width="4" height="4" fill="#2a2a4a" />
+                  <rect x="10" y="5" width="4" height="4" fill="#2a2a4a" />
+                  <rect x="15" y="5" width="4" height="4" fill="#2a2a4a" />
+                  <rect x="20" y="5" width="4" height="4" fill="#2a2a4a" />
+                  <rect x="25" y="5" width="2" height="4" fill="#2a2a4a" />
+                  <rect x="5" y="10" width="4" height="4" fill="#2a2a4a" />
+                  <rect x="10" y="10" width="4" height="4" fill="#ff3366" opacity="0.9" />
+                  <rect x="15" y="10" width="4" height="4" fill="#2a2a4a" />
+                  <rect x="20" y="10" width="4" height="4" fill="#2a2a4a" />
+                  <rect x="5" y="15" width="4" height="4" fill="#2a2a4a" />
+                  <rect x="10" y="15" width="4" height="4" fill="#2a2a4a" />
+                  <rect x="15" y="15" width="4" height="4" fill="#ff3366" opacity="0.9" />
+                  <rect x="20" y="15" width="4" height="4" fill="#2a2a4a" />
+                  <rect x="5" y="20" width="4" height="4" fill="#2a2a4a" />
+                  <rect x="10" y="20" width="4" height="4" fill="#2a2a4a" />
+                  <rect x="15" y="20" width="4" height="4" fill="#2a2a4a" />
+                  <rect x="20" y="20" width="4" height="4" fill="#ff3366" opacity="0.9" />
+                  <!-- mine dot -->
+                  <circle cx="13" cy="13" r="2" fill="#ff3333" />
+                  <circle cx="18" cy="18" r="2" fill="#ff3333" />
+                  <!-- border highlight -->
+                  <rect x="4" y="4" width="24" height="1" fill="rgba(255,255,255,0.2)" />
+                  <rect x="4" y="4" width="1" height="24" fill="rgba(255,255,255,0.2)" />
+                  <rect x="4" y="27" width="24" height="1" fill="rgba(0,0,0,0.4)" />
+                  <rect x="27" y="4" width="1" height="24" fill="rgba(0,0,0,0.4)" />
+                </svg>
+              </span>
+              <h3>MINESWEEPER</h3>
+              <p>Classic mine-dodging. Don't click the wrong square.</p>
+            </a>
+            <a href="games/chess.html" class="game-card">
+              <span class="game-card-icon win98-icon" aria-label="Chess">
+                <svg viewBox="0 0 32 32" width="48" height="48" shape-rendering="crispEdges">
+                  <rect width="32" height="32" fill="#0d0d1a" />
+                  <rect x="4" y="4" width="24" height="24" fill="#1a1a3a" stroke="#ff3333" stroke-width="1" />
+                  <!-- checkerboard -->
+                  <rect x="5" y="5" width="3" height="3" fill="#2a2a4a" />
+                  <rect x="8" y="5" width="3" height="3" fill="#0d0d1a" />
+                  <rect x="11" y="5" width="3" height="3" fill="#2a2a4a" />
+                  <rect x="14" y="5" width="3" height="3" fill="#0d0d1a" />
+                  <rect x="17" y="5" width="3" height="3" fill="#2a2a4a" />
+                  <rect x="20" y="5" width="3" height="3" fill="#0d0d1a" />
+                  <rect x="23" y="5" width="3" height="3" fill="#2a2a4a" />
+                  <rect x="5" y="8" width="3" height="3" fill="#0d0d1a" />
+                  <rect x="8" y="8" width="3" height="3" fill="#2a2a4a" />
+                  <rect x="11" y="8" width="3" height="3" fill="#0d0d1a" />
+                  <rect x="14" y="8" width="3" height="3" fill="#2a2a4a" />
+                  <rect x="17" y="8" width="3" height="3" fill="#0d0d1a" />
+                  <rect x="20" y="8" width="3" height="3" fill="#2a2a4a" />
+                  <rect x="23" y="8" width="3" height="3" fill="#0d0d1a" />
+                  <!-- king piece -->
+                  <rect x="13" y="14" width="6" height="1" fill="#ff3333" />
+                  <rect x="15" y="12" width="2" height="5" fill="#ff3333" />
+                  <rect x="12" y="17" width="8" height="2" fill="#ff3333" />
+                  <rect x="11" y="19" width="10" height="3" fill="#ff3333" opacity="0.7" />
+                  <!-- top cross -->
+                  <rect x="15" y="11" width="2" height="1" fill="#fff" />
+                  <rect x="14" y="12" width="4" height="1" fill="#fff" opacity="0.7" />
+                  <rect x="4" y="4" width="24" height="1" fill="rgba(255,255,255,0.2)" />
+                  <rect x="4" y="4" width="1" height="24" fill="rgba(255,255,255,0.2)" />
+                </svg>
+              </span>
+              <h3>CHESS</h3>
+              <p>Two-player local chess. Full rules, no mercy.</p>
+            </a>
+            <a href="games/snake.html" class="game-card">
+              <span class="game-card-icon win98-icon" aria-label="Snake">
+                <svg viewBox="0 0 32 32" width="48" height="48" shape-rendering="crispEdges">
+                  <rect width="32" height="32" fill="#0d0d1a" />
+                  <rect x="4" y="4" width="24" height="24" fill="#1a1a3a" stroke="#ff3333" stroke-width="1" />
+                  <!-- snake body -->
+                  <rect x="6" y="24" width="4" height="4" fill="#ff6600" />
+                  <rect x="10" y="24" width="4" height="4" fill="#ff6600" />
+                  <rect x="14" y="24" width="4" height="4" fill="#ff6600" />
+                  <rect x="14" y="20" width="4" height="4" fill="#ff6600" />
+                  <rect x="14" y="16" width="4" height="4" fill="#ff6600" />
+                  <rect x="14" y="12" width="4" height="4" fill="#ff6600" />
+                  <rect x="18" y="12" width="4" height="4" fill="#ff6600" />
+                  <rect x="22" y="12" width="4" height="4" fill="#ff3333" /><!-- head -->
+                  <!-- eye -->
+                  <rect x="24" y="13" width="1" height="1" fill="#0d0d1a" />
+                  <!-- food -->
+                  <rect x="7" y="7" width="4" height="4" fill="#ff3366" opacity="0.9" />
+                  <rect x="8" y="8" width="2" height="2" fill="#ff9900" />
+                  <rect x="4" y="4" width="24" height="1" fill="rgba(255,255,255,0.2)" />
+                  <rect x="4" y="4" width="1" height="24" fill="rgba(255,255,255,0.2)" />
+                </svg>
+              </span>
+              <h3>SNAKE</h3>
+              <p>Grow. Eat. Don't bite yourself. Classic.</p>
+            </a>
+            <a href="games/tetris.html" class="game-card">
+              <span class="game-card-icon win98-icon" aria-label="Tetris">
+                <svg viewBox="0 0 32 32" width="48" height="48" shape-rendering="crispEdges">
+                  <rect width="32" height="32" fill="#0d0d1a" />
+                  <rect x="4" y="4" width="24" height="24" fill="#1a1a3a" stroke="#ff3333" stroke-width="1" />
+                  <!-- I piece (cyan) -->
+                  <rect x="5" y="5" width="4" height="4" fill="#ff3333" />
+                  <rect x="5" y="9" width="4" height="4" fill="#ff3333" />
+                  <rect x="5" y="13" width="4" height="4" fill="#ff3333" />
+                  <rect x="5" y="17" width="4" height="4" fill="#ff3333" />
+                  <!-- S piece (green) -->
+                  <rect x="10" y="13" width="4" height="4" fill="#ff6600" />
+                  <rect x="14" y="13" width="4" height="4" fill="#ff6600" />
+                  <rect x="10" y="17" width="4" height="4" fill="#ff6600" />
+                  <rect x="6" y="17" width="4" height="4" fill="#ff6600" />
+                  <!-- L piece (orange) -->
+                  <rect x="19" y="5" width="4" height="4" fill="#ff9900" />
+                  <rect x="19" y="9" width="4" height="4" fill="#ff9900" />
+                  <rect x="19" y="13" width="4" height="4" fill="#ff9900" />
+                  <rect x="23" y="13" width="4" height="4" fill="#ff9900" />
+                  <!-- T piece (purple) -->
+                  <rect x="10" y="21" width="4" height="4" fill="#ff9900" />
+                  <rect x="14" y="21" width="4" height="4" fill="#ff9900" />
+                  <rect x="18" y="21" width="4" height="4" fill="#ff9900" />
+                  <rect x="14" y="25" width="4" height="4" fill="#ff9900" />
+                  <rect x="4" y="4" width="24" height="1" fill="rgba(255,255,255,0.2)" />
+                  <rect x="4" y="4" width="1" height="24" fill="rgba(255,255,255,0.2)" />
+                </svg>
+              </span>
+              <h3>TETRIS</h3>
+              <p>Stack blocks. Clear lines. Lose sleep.</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>aryaan yadav // <span id="footer-year">2026</span> // no analytics, no cookies, no unnecessary extras.</p>
+      <p style="margin-top:4px;" id="footer-tagline">hand-coded with ♥ // best experienced at 3am</p>
+      <!-- Hidden admin link — not linked anywhere visible -->
+      <a href="admin/" style="opacity:0;font-size:1px;pointer-events:none;" tabindex="-1" aria-hidden="true">.</a>
+    </footer>
+  </div>
+
+  <!-- ═══ MUSIC PLAYER ════════════════════════════════════════ -->
+  <div id="music-player">
+    <div class="player-title-bar" id="player-drag-handle">
+      <span class="player-icon">🎵</span>
+      <span>WINAMP.EXE</span>
+      <div class="player-win-btns">
+        <button id="player-min-btn" title="Minimize">_</button>
+        <button id="player-close-btn" title="Hide">×</button>
+      </div>
+    </div>
+    <div class="player-body" id="player-body">
+      <div class="now-playing">
+        <div class="np-label">NOW PLAYING</div>
+        <div class="np-track" id="np-track">—</div>
+        <div class="np-artist" id="np-artist">—</div>
+      </div>
+
+      <div class="winamp-eq" id="winamp-eq"></div>
+
+      <div class="progress-container">
+        <input type="range" class="progress-bar" id="progress-bar" min="0" max="100" value="0" />
+        <div class="time-display">
+          <span id="time-current">0:00</span>
+          <span id="time-total">0:00</span>
+        </div>
+      </div>
+
+      <div class="player-controls">
+        <button class="ctrl-btn" id="btn-shuffle" title="Shuffle">⇄</button>
+        <button class="ctrl-btn" id="btn-prev" title="Previous">⏮</button>
+        <button class="ctrl-btn play-pause" id="btn-play" title="Play / Pause">▶</button>
+        <button class="ctrl-btn" id="btn-next" title="Next">⏭</button>
+        <button class="ctrl-btn" id="btn-repeat" title="Repeat">↻</button>
+      </div>
+
+      <div class="volume-row">
+        <span class="volume-icon" id="vol-icon">🔊</span>
+        <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="70" />
+      </div>
+
+      <button class="playlist-toggle" id="playlist-toggle">▼ PLAYLIST (3)</button>
+      <div class="playlist" id="playlist"></div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script src="player/player.js"></script>
+  <script>
+    // Set footer year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // Listening status stub (would hook to last.fm API in production)
+    const tracks = ['void//cascade', 'midnight.exe', 'drain loop', '3am static', 'ghost protocol'];
+    document.getElementById('listening-status').textContent = tracks[Math.floor(Math.random() * tracks.length)];
+  </script>
+</body>
+
+</html>

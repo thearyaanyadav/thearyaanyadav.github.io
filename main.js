@@ -346,6 +346,9 @@ function renderPhileList(containerEl, philes, maxItems) {
     titleLink.style.cssText = 'text-decoration:none;';
     titleLink.addEventListener('click', e => {
       e.preventDefault();
+       // Switch to Files tab so the viewer is visible
+      const philesTab = document.querySelector('[data-tab="philes"]');
+      if (philesTab) philesTab.click();
       if (window.openFile) window.openFile(p.title, p.body || p.excerpt || '', p.date, p.md || null);
     });
     leftSpan.appendChild(titleLink);
@@ -820,4 +823,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   initDesktopIcons();
   initEasterEggs();
 });
+
 
